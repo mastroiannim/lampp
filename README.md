@@ -1,3 +1,9 @@
-docker build -t xampp .
+docker build -t lampp .
+docker image tag lampp mastroiannim/lampp:latest
 
-docker run -it --rm -p 80:80 xampp
+exit
+
+docker run -it --rm -p 80:80 --read-only lampp
+
+docker run -it --rm -p 80:80 lampp
+
