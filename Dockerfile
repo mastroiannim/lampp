@@ -2,12 +2,17 @@ FROM alpine
 
 EXPOSE 80
 
+#VOLUME [ "/run/openrc" ]
+#VOLUME [ "/sys/fs/cgroup/" ]
+#VOLUME [ "/run/mysqld" 
+#VOLUME [ "/var/www/logs/" ]
 
 ENV HOSTNAME localhost
 RUN echo $(hostname)  > /etc/hostname
 
 RUN apk update
 RUN apk add openrc --no-cache --upgrade
+RUN apk add udev-init-scripts-openrc
 
 RUN apk add bash
 RUN apk add apache2
